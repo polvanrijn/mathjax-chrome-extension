@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "MathJax Plugin",
+  "description": "Renders equations with MathJax on any page",
+  "version": "0.2.5",
+  "background": {
+        "scripts": [
+            "mathjax_config.js", "MathJax/MathJax.js", "jquery-min-1.7.2.js", "jquery.include.pack-1.1.js", "background.js"
+        ]
+  },
+  "browser_action": {
+        "default_title": "Click to toggle math"
+    },
+  "web_accessible_resources": ["mathjax_config.js", "MathJax/*", "jquery-min-1.7.2.js", "show_math.js", "hide_math.js"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["jquery-min-1.7.2.js", "jquery.include.pack-1.1.js", "content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "icons": {  
+    "127": "icon.png"
+   }
+}
